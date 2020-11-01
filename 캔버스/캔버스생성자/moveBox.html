@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>박스 움직이기</title>
+  <style>
+    canvas{
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interaction</h1>
+  <canvas class="canvas" width="600" height="400"></canvas>
+
+  <script>
+    const canvas = document.querySelector('.canvas')
+    const ctx = canvas.getContext('2d')
+    const boxes  = [] //생성된 박스 객체를 담을 변수
+    const mousePos = {x:0, y:0}; //클릭된 상자의 x,y좌표를 담을 생성자 함수
+
+    let selecteBox;  //클릭된 박스를 넣을 변수
+
+    ctx.font = 'bold 30px sans-serif';
+   
+
+
+    class Box{
+      constructor(index, x, y, speed){
+        this.index = index;
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.width = 100;
+        this.height =100;
+        // 생성되면 바로 그리기
+        this.draw();
+      }
+      // 그리기
+      draw(){
+        ctx.fillStyle = 'rgba(0,0,0,0.5)';
+        ctx.fillRect(this.x, this.y, 100, 100);
+        ctx.fillStyle = '#fff';
+        ctx.fillText(this.index, this.x+30, this.y+30);
+      }
+    }
+
+    function render(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      let box;
+      for(let i=0; i<boxes.length; i++){
+        box = boxes[i];
+        box.x += box.speed;
+        if(box.x>canvas.width){
+          box.x = -box.width;
+        }
+        box.draw();
+      }
+      requestAnimationFrame(render);
+    }
+    let tempX, TempY , tempSpeed;
+    for (let i= 0; i<10; i++){
+      // 박스를 그릴 위치 
+      tempX = Math.random() * canvas.width *0.8
+      tempY = Math.random() * canvas.height *0.8
+      tempSpeed = Math.random()*4 +1;
+      boxes.push(new Box(i, tempX, tempY ,tempSpeed ))
+
+      
+    }
+    canvas.addEventListener('click' , e =>{
+      mousePos.x =e.layerX;
+      mousePos.y =e.layerY;
+
+      //  체크 클릭된x,y좌표와 생성된 상자의 좌표를 박스의 갯수만큼 확인
+      for(let i =0; i<boxes.length; i++){
+        box = boxes[i];
+        //클릭된 레이어의 x좌표 > 그려진 상자의 x좌표   그러젼 상자안쪽으로 클릭이 됬고
+        //클린된 레이어의 x좌표 < 그러진 상자의 x좌표 + 가로크기  그려진 상자 왼쪽 좌표보다 안쪽이 클릭됐다면
+
+        //x좌표0  <    이부분이 클릭됐다면    >    x좌표100
+        if(mousePos.x > box.x && mousePos.x<box.x+box.width
+          && mousePos.y > box.y && mousePos.y<box.y+box.height){
+          //클릭된 영역 안에서 중첩부분이 있다면
+          //낮은 인덱스부터 저장되어 마지막에 생성된 박스를 저장
+          selecteBox = box;
+        }
+      }
+
+      console.log(selecteBox);
+    })
+    render();
+
+  </script>
+</body>
+
+</html>

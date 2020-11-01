@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .canvas{
+      /* background-color: #000; */
+    }
+  </style>
+</head>
+<body>
+  
+  <canvas class="canvas" whidh="600" height="400"></cavas>
+
+
+  <script>
+    const canvas = document.querySelector('.canvas');
+    const context = canvas.getContext('2d');
+    let 각도값 =0;
+    let 퍼센트값=300;
+    function 라디안(각도){
+      return 각도 * Math.PI/180;
+    }
+
+    function draw(){
+      // context.clearRect(0, 0, canvas.width, canvas.height);
+      context.strokeStyle = 'rgb(0, 255 , 255)';
+      context.lineWidth = 20;
+      context.lineCap = "round";
+      context.beginPath();
+      context.arc( 150, 200, 50, 0, 라디안(각도값),false);
+      context.stroke();
+      
+      requestAnimationFrame(draw);
+      if(각도값<퍼센트값){
+        각도값+=10;
+        return;
+      }
+    }
+
+    draw();
+
+    // for (var i = 0; i < 6; i++) {
+    // for (var j = 0; j < 6; j++) {
+    //   context.strokeStyle = 'rgb(0, 255 , 255)';
+    //   context.beginPath();
+    //   context.arc(150 , 150, 50, 0, Math.PI * 2, true);
+    //   context.stroke();
+    // }
+  // }
+  </script>
+</body>
+</html>

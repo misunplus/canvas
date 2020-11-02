@@ -21,11 +21,10 @@
     const canvas = document.querySelectorAll("canvas");
     const canvasArray = [];
     const arcArray = [];
-    let 각도값 = 0;
-    // let 퍼센트값;
 
-    function 라디안(각도) {
-      return (각도 * Math.PI) / 180;
+
+    function 라디안(퍼센트값) {
+      return (퍼센트값 * Math.PI) / 180;
     }
 
     class SkillBox {
@@ -33,20 +32,18 @@
         this.ctx = canvas.getContext("2d");
         this.x = x;
         this.y = y;
-        this.퍼센트값 = 퍼센트값;
       }
+      draw(퍼센트값 , 각도값) {
+  
+        this.ctx.beginPath();
+        this.ctx.arc(100, 75, 50, 0, 라디안(퍼센트값), false);
+        this.ctx.stroke();
+     
+      }
+
     }
 
-    const draw = function (퍼센트값, canvasArray) {
-      // console.log(canvasArray.퍼센트값);
-      // this.ctx.clearRect(0, 0, canvas.width, canvas.height)
-      canvasArray.ctx.beginPath();
-      canvasArray.ctx.arc(100, 75, 50, 0, 라디안(각도값), false);
-      canvasArray.ctx.stroke();
-      if (각도값 < 퍼센트값) {
-        각도값 += 5;
-      }
-    }
+
     for (let i = 0; i < canvas.length; i++) {
       canvasArray[i] = canvas[i];
       arcArray[i] = canvas[i].dataset.arc;
@@ -63,9 +60,8 @@
       } else {
         for (let i = 0; i < canvasArray.length; i++) {
           function 클로저(j) {
-            setTimeout(function () {
-              draw(arcArray[j], canvasArray[j]);
-              console.log(arcArray[j], canvasArray[j])
+            setTimeout(function () {    
+              canvasArray[j].draw(arcArray[j]);
               requestAnimationFrame(render);
             }, j * 2000);
           }

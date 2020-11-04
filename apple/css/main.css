@@ -22,13 +22,14 @@ a {
     text-decoration: none;
 }
 
-
 .cantainer>.global-nav {
     height: 44px;
+    padding: 0 1rem;
 }
 
 .cantainer>.local-nav {
     height: 52px;
+    padding: 0 1rem;
     border-bottom: 1px solid #ddd;
 }
 
@@ -56,4 +57,86 @@ a {
 .cantainer>.local-nav>.local-nav-links>a:not(.product-name) {
     font-size: 0.8rem;
     margin-left: 2em;
+}
+
+.scroll-section {
+    padding-top: 50vh;
+}
+
+#scroll-section-0>h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+section>.main-meggage {
+    display: flex;
+    justify-content: center;
+    height: 3em;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+section>.main-meggage>p {
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+}
+
+section>.description {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+section>.description>strong {
+    float: left;
+    margin-right: 0.2em;
+    color: rgba(29, 29, 29, 31);
+    font-size: 3rem;
+}
+
+#scroll-section-2>.main-meggage {
+    font-size: 3.5rem;
+}
+
+#scroll-section-2 .main-meggage>small {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+}
+
+#scroll-section-2>.desc-message {
+    width: 50%;
+    font-weight: bold;
+}
+
+#scroll-section-2>.desc-message>.pin {
+    width: 1px;
+    height: 100px;
+    background-color: rgba(29, 29, 29, 31);
+}
+
+
+
+
+#scroll-section-3>.mid-message {
+    padding: 0 1rem;
+    color: #888;
+    font-size: 2em;
+}
+
+#scroll-section-3>.mid-message>strong {
+    color: rgb(29, 29, 31);
+}
+
+#scroll-section-3>.canvas-caption {
+    color: #888;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

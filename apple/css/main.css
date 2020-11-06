@@ -77,12 +77,14 @@ a {
     text-align: center;
 }
 
-section>.main-meggage {
+section>.main-message {
     display: flex;
+    text-align: center;
     justify-content: center;
+    margin: 5px 0;
     height: 3em;
     font-size: 2.5rem;
-    text-align: center;
+    opacity: 0;
 }
 
 section>.main-meggage>p {
@@ -157,7 +159,7 @@ footer {
 
 }
 
-section.sticky-elem {
+section .sticky-elem {
     display: none;
     position: fixed;
     top: 0;

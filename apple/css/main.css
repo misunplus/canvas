@@ -22,7 +22,15 @@ a {
     text-decoration: none;
 }
 
-.cantainer>.global-nav {
+body.before-load {
+    overflow: hidden;
+}
+
+.container {
+    overflow-x: hidden;
+}
+
+.global-nav {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,7 +39,7 @@ a {
     padding: 0 1rem;
 }
 
-.cantainer>.local-nav {
+.local-nav {
     position: absolute;
     top: 44px;
     left: 0;
@@ -41,8 +49,8 @@ a {
     border-bottom: 1px solid #ddd;
 }
 
-.cantainer>.global-nav>.global-nav-links,
-.cantainer>.local-nav>.local-nav-links {
+.global-nav-links,
+.local-nav-links {
     display: flex;
     align-items: center;
     max-width: 1000px;
@@ -50,20 +58,21 @@ a {
     margin: 0 auto;
 }
 
-.cantainer>.global-nav>.global-nav-links {
+.global-nav-links {
     justify-content: space-between;
 }
 
-.cantainer>.local-nav>.local-nav-links>.product-name {
+.local-nav-links .product-name {
     margin-right: auto;
     font-size: 1.4rem;
     font-weight: bold;
 }
 
-.cantainer>.local-nav>.local-nav-links>a {}
-
-.cantainer>.local-nav>.local-nav-links>a:not(.product-name) {
+.local-nav-links a {
     font-size: 0.8rem;
+}
+
+.local-nav-links>a:not(.product-name) {
     margin-left: 2em;
 }
 
@@ -72,28 +81,37 @@ a {
     padding-top: 50vh;
 }
 
-#scroll-section-0>h1 {
+#scroll-section-0 h1 {
     font-size: 4rem;
     text-align: center;
 }
 
-section>.main-message {
+.main-message {
     display: flex;
     text-align: center;
     justify-content: center;
+    top: 35vh;
     margin: 5px 0;
     height: 3em;
     font-size: 2.5rem;
     opacity: 0;
 }
 
-section>.main-meggage>p {
+.main-message p {
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
 }
 
-section>.description {
+.main-message small {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.2rem;
+}
+
+
+
+.description {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -101,38 +119,50 @@ section>.description {
     font-size: 1.2rem;
 }
 
-section>.description>strong {
+.description strong {
     float: left;
     margin-right: 0.2em;
     color: rgba(29, 29, 29, 31);
     font-size: 3rem;
 }
 
-#scroll-section-2>.main-meggage {
+#scroll-section-2 .main-message {
     font-size: 3.5rem;
 }
 
-#scroll-section-2 .main-meggage>small {
+#scroll-section-2 .main-message>small {
     display: block;
     margin-bottom: 0.5em;
     font-size: 1rem;
 }
 
-#scroll-section-2>.desc-message {
+.desc-message {
     width: 50%;
     font-weight: bold;
+    opacity: 0;
 }
 
-#scroll-section-2>.desc-message>.pin {
+.pin {
     width: 1px;
     height: 100px;
     background-color: rgba(29, 29, 29, 31);
 }
 
+#scroll-section-2 .b {
+    top: 10%;
+    left: 40%;
+
+}
+
+#scroll-section-2 .c {
+    top: 15%;
+    left: 45%;
+}
 
 
 
-#scroll-section-3>.mid-message {
+
+.mid-message {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -140,29 +170,29 @@ section>.description>strong {
     font-size: 2em;
 }
 
-#scroll-section-3>.mid-message>strong {
+.mid-message strong {
     color: rgb(29, 29, 31);
 }
 
-#scroll-section-3>.canvas-caption {
+.canvas-caption {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
     color: #888;
     font-size: 1.2rem;
-    padding: 0 1rem;
 }
 
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    height: 7rem;
 }
 
 section .sticky-elem {
     display: none;
     position: fixed;
-    top: 0;
+    /* top: 0; */
     left: 0;
     width: 100%;
 }
@@ -180,28 +210,39 @@ body#show-scen-3 #scroll-section-3 .sticky-elem {
         font-size: 9vw;
     }
 
-    #scroll-section-0 .main-meggage {
+    .main-message {
         font-size: 4vw;
     }
 
-    #scroll-section-1>.description {
+    .description {
+        padding: 0;
         font-size: 2rem;
     }
 
-    #scroll-section-1>.description>strong {
+    .description>strong {
         font-size: 6rem;
     }
 
-    #scroll-section-2 .main-meggage {
+    #scroll-section-2 .main-message {
         font-size: 6vw;
     }
 
-    #scroll-section-2 .main-meggage small {
+    #scroll-section-2 .main-message small {
         font-size: 1.5vw;
     }
 
     #scroll-section-2 .desc-message {
         width: 20%;
+    }
+
+    #scroll-section-2 .b {
+        top: 20%;
+        left: 53%;
+
+    }
+
+    #scroll-section-2 .c {
+        left: 55%;
     }
 
     #scroll-section-3 .mid-message {

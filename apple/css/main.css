@@ -191,7 +191,8 @@ body.before-load {
 .sticky-elem-canvas {
     top: 0;
     height: 100%;
-    background-color: #000;
+
+    background-color: #000000;
 }
 
 .sticky-elem-canvas canvas {
@@ -223,6 +224,18 @@ body#show-scen-2 #scroll-section-2 .sticky-elem,
 body#show-scen-3 #scroll-section-3 .sticky-elem {
     display: block;
 }
+
+.image-blend-canvas {
+    background-color: pink;
+}
+
+#scroll-section-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 
 
 

@@ -10,7 +10,9 @@ body {
     overflow-x: hidden;
     color: #fff;
     letter-spacing: -0.05em;
-    background-color: #fff;
+    background-color: #000;
+
+    /* background-color: #fff; */
 }
 
 p {
@@ -80,7 +82,8 @@ body.before-load {
 }
 
 .scroll-section {
-    border: 3px solid red;
+    position: relative;
+    /* border: 3px solid red; */
     padding-top: 50vh;
 }
 
@@ -128,7 +131,8 @@ body.before-load {
 .description strong {
     float: left;
     margin-right: 0.2em;
-    color: rgba(29, 29, 29, 31);
+    /* color: rgba(29, 29, 29, 31); */
+    color: white;
     font-size: 3rem;
 }
 
@@ -151,7 +155,8 @@ body.before-load {
 .pin {
     width: 1px;
     height: 100px;
-    background-color: rgba(29, 29, 29, 31);
+    background-color: white;
+    /* background-color: rgba(29, 29, 29, 31); */
 }
 
 #scroll-section-2 .b {
@@ -225,8 +230,11 @@ body#show-scen-3 #scroll-section-3 .sticky-elem {
     display: block;
 }
 
-.image-blend-canvas {
-    background-color: pink;
+.image-blend-canvas.sticky {
+    position: fixed;
+    top: 0;
+    /* background-color: pink; */
+
 }
 
 #scroll-section-3 {

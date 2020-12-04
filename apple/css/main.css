@@ -54,6 +54,13 @@ body.before-load {
 
 }
 
+.local-nav-sticky .local-nav {
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: saturate(180%) blur(15px);
+}
+
 .global-nav-links,
 .local-nav-links {
     display: flex;
@@ -187,7 +194,7 @@ body.before-load {
 
 .canvas-caption {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: -5em 0 auto;
     padding: 0 1rem;
     color: #888;
     font-size: 1.2rem;
@@ -244,7 +251,74 @@ body#show-scen-3 #scroll-section-3 .sticky-elem {
 
 }
 
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 100;
+}
 
+.before-load .loading {
+    opacity: 1;
+}
+
+@keyframes loading-spin {
+    100% {
+        transform: rotate(300deg)
+    }
+}
+
+@keyframes loading-circle-ani {
+    0% {
+        stroke-dashoffset: 157;
+    }
+
+    75% {
+        stroke-dashoffset: -147;
+    }
+
+    100% {
+        stroke-dashoffset: -150;
+    }
+
+}
+
+.loading-circle {
+    width: 54px;
+    height: 54px;
+    animation: loading-spin 3s infinite;
+}
+
+/* 부보의 뷰박스의 상태에때라 
+크기가 변경되기때문에 정확한 값을 안줘도 됨  */
+.loading-circle circle {
+    stroke: black;
+    stroke-width: 4;
+    /* 원의 둘래 157 */
+    /* 1. 원의 둘래 얻는법 
+    1. 개발자 도구에서 스트로크 대쉬값을 올려서 확인하는방법 
+    2. 개발자 도구 콘솔창에서 
+        document.querySelector('loading-circle circle').getToTalLength()
+    */
+    stroke-dasharray: 157;
+    stroke-dashoffset: 0;
+    fill: transparent;
+    animation: loading-circle-ani 1s infinite;
+}
+
+/* .loading-circle:hover circle {
+    stroke-dashoffset: -157;
+} */
 
 
 @media (min-width:1024px) {
@@ -289,10 +363,13 @@ body#show-scen-3 #scroll-section-3 .sticky-elem {
     }
 
     #scroll-section-3 .mid-message {
+        width: 1000px;
+        padding: 0;
         font-size: 4vw;
     }
 
     #scroll-section-3 .canvas-caption {
+        padding: 0;
         font-size: 2rem;
     }
 
